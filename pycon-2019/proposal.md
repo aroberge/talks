@@ -1,4 +1,4 @@
-# Title: _Hooked on Python_
+# Title: _Hooked on Python: customizing imports and tracebacks_
 
 ## Summary
 
