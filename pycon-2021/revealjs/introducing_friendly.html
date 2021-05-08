@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Introducing friendly</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/default.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+    <h2>Introducing friendly</h2>
+    <h4>André Roberge</h4>
+    PyCon Education Summit - May 12, 2021
+</section>
+
+<section>
+    <h2>Apparent talk outline</h2>
+    <pre><code data-trim>
+from talk_utils import *
+
+questions = ["what", "where", "why"]  # Special friendly cases
+questions += ["who", "when"]
+
+while time_left():
+    if demo_time():
+        include_in_slide_title("demo")
+    else:
+        include_in_slide_title(choice(questions))</code></pre>
+</section>
+
+<section>
+    <h2>Who ... am I?</h2>
+
+<p style="text-align: left;">
+Python hobbyist trying since 2004 to help other people
+learn Python through various projects:
+</p>
+
+<ul>
+    <li>RUR-PLE</li>
+    <li>Reeborg's World</li>
+    <li>Crunchy</li>
+    <li>docpicture</li>
+    <li>AvantPy</li>
+    <li><strong>friendly</strong></li>
+        <li><em>etc.</em></li>
+</ul>
+</section>
+
+<section>
+    <h2>Who ... are you?</h2>
+
+<p style="text-align: left;">
+I assume that most of you have experience and/or interest
+in helping beginners
+learn Python.
+</p>
+</section>
+
+
+<section>
+    <h2>What ... is friendly?</h2>
+
+<p style="text-align: left;">
+A tool that enhances Python tracebacks to make them easier to understand.
+</p>
+
+<p style="text-align: left;">
+It used to be called <b>friendly-traceback.</b>
+</p>
+
+
+<pre><code data-trim>
+>>> import this
+...
+
+Explicit is better than implicit.
+
+...</code></pre>
+
+<p style="text-align: left;">
+<b>friendly-traceback</b> is more explicit than <b>friendly</b>.
+</p>
+
+<em>Why the name change?</em>
+</section>
+
+<section>
+    <section>
+        <h2>Demo 1</h2>
+        <pre><code data-trim>
+    import turtle as t
+
+    for i in range(4):
+        t.forward(100)
+        t.left(90)</code></pre>
+    </section>
+
+    <section>
+        <h2>Demo 1</h2>
+        <pre><code data-trim data-noescape class="python">
+    > python turtle.py
+
+    Traceback (most recent call last):
+      File "turtle.py", line 3, in &lt;module>
+        import turtle as t
+      File "...\turtle.py", line 6, in &lt;module>
+        t.forward(100)
+    AttributeError: partially initialized module 'turtle'
+    has no attribute 'forward'
+    (most likely due to a circular import)</code></pre>
+    </section>
+
+    <section>
+        <h2>Demo 1</h2>
+        <img src="demo-turtle1.png" style="width:60%">
+    </section>
+
+    <section>
+        <h2>Demo 1</h2>
+        <pre><code class="text">python -im friendly turtle.py</code></pre>
+    </section>
+
+    <section>
+        <h2>Demo 1: traceback and <code>hint()</code></h2>
+        <img src="demo-turtle1-tb.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what()</code></h2>
+        <img src="demo-turtle1-what.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>why()</code></h2>
+        <img src="demo-turtle1-why.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>where()</code></h2>
+        <img src="demo-turtle1-where.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>www()</code></h2>
+        <img src="demo-turtle1-www.png">
+        <img src="demo-turtle1-www-ddg.png" style="width:  80%; box-shadow: 5px 5px 5px 5px #ccc;">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what()</code> in French</h2>
+        <img src="demo-turtle1-what-fr.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what(...)</code> </h2>
+        <img src="demo-turtle1-what-en.png">
+    </section>
+
+</section>
+
+
+<section>
+    Prepare for warnings
+</section>
+
+
+<section>
+    <h2>Why the name change?</h2>
+
+<pre><code data-trim>from friendly.idle    import ...
+from friendly.mu      import ...
+from friendly.ipython import ...
+from friendly.jupyter import ...
+
+# are better than
+
+from friendly_traceback.idle import ...</code></pre>
+
+
+<p style="text-align: left;">
+Besides, <em>traceback</em> is not exactly a beginner-friendly term
+and, in the future, <b>friendly</b> might do more than simply
+helping with tracebacks ...
+</p>
+</section>
+
+<section>
+    <h2>Why ... <code>import *</code>?</h2>
+    Custom interpreter: think of it as additional builtins.
+</section>
+
+
+<section>
+    <h3>Who ... influenced the design of friendly?</h3>
+
+    <ul>
+        <li>Nicholas Tollervey (<a href="https://codewith.mu/">Mu</a>)</li>
+        <li>Aivar Annamaa (<a href="https://thonny.org/">Thonny</a>)</li>
+        <li>Julien Palard (<a href="https://www.hackinscience.org/">HackInScience</a>)</li>
+        <li>Alex Hall (<a href="https://futurecoder.io/">futurecoder</a>)</li>
+        <li>Michael Kennedy, Brian Okken, and Hannah Stepanek in
+            <a href="https://pythonbytes.fm/episodes/show/220/what-why-and-where-of-friendly-errors-in-python">PythonBytes podcast #220</a></li>
+        <li>+ many others who filed issues</li>
+    </ul>
+
+<b>I hope that YOUR name will be added to this list.</b>
+</section>
+
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

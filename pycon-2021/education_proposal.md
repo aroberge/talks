@@ -1,0 +1,10 @@
+# Introducing friendly
+
+Python tracebacks contain extremely useful information to debug programs but do not present this information in a way that is easily understandable for beginners. Friendly (previously known as Friendly-traceback) is a package that aims to present the information given by a traditional traceback in a more user-friendly way, and adding extra information that can help to understand the exact cause of the exception and how to fix it.
+
+In this talk, I will give examples as to how Friendly can improve upon the traditional Python tracebacks, both for runtime and syntax errors. These examples will be shown in various programming environments, from interpreters run in a terminal to full-blown IDEs, as well as in Jupyter notebooks. The information provided by Friendly can be translated into languages other than English, as will be demonstrated.
+
+
+## Additional notes
+
+Since 2004, I have been programming in Python with a focus on developing applications useful in learning Python, all available for free. Many of them have been used, and continue to be used, in various countries. The package I intend to present is called "friendly" and used to be known as Friendly-traceback. It is currently used on two learning sites: HackInScience.org and FutureCoder.io. A very early version of Friendly had been recognized as worthy of support by the PSF (https://pyfound.blogspot.com/2019/09/grants-awarded-for-python-in-education.html); since then, it has been significantly improved and has recently been discussed in a episode 220 of the PythonBytes podcast (https://pythonbytes.fm/episodes/show/220/what-why-and-where-of-friendly-errors-in-python). An earlier episode (#145) of that podcast series also talked briefly about it. More information about friendly can be found at https://aroberge.github.io/friendly-traceback-docs/docs/html/. In terms of speaking experience: I have taught Math and Physics courses, starting in 1991. Between 2005 and 2009, I gave a total of 4 Python talks at either EuroPython or Pycon US. I have not given a formal Python-related talk since then.
