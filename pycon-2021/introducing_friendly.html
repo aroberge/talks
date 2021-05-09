@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="revealjs/plugin/highlight/default.css" id="highlight-theme">
         <style type="text/css">
             img {box-shadow: 5px 5px 5px 5px #ccc;}
+            pre code{font-size: 1.3em; line-height: 1.3em;}
         </style>
 	</head>
 	<body>
@@ -26,10 +27,6 @@
     <br>
     <br>
     <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
-    <br>
-    <a href="https://github.com/aroberge/talks">https://github.com/aroberge/talks</a>
-
-
 </section>
 
 <section>
@@ -37,19 +34,19 @@
     <pre><code data-trim class="python">
 from talk_utils import *
 
-questions = ["what", "where", "why"]
-questions.append("who")
-questions.append("How to")
+questions = [what, where, why]
+questions += [who, how_to]
 
 while time_left():
     if demo_time():
-        include_in_slide_title("demo")
+        include_in_title("demo")
     else:
-        include_in_slide_title(choice(questions))</code></pre>
+        include_in_title(choice(questions))</code></pre>
 </section>
 
 <section>
-    <h2>Who ... am I?</h2>
+    <section>
+    <h2><code>who( am I? )</code></h2>
 
 <p style="text-align: left;">
 Python hobbyist trying since 2004 to help other people
@@ -58,7 +55,7 @@ learn Python through various projects:
 
 <ul>
     <li>RUR-PLE</li>
-    <li>Reeborg's World</li>
+    <li>Reeborg's World <small>see below</small></li>
     <li>Crunchy</li>
     <li>docpicture</li>
     <li>AvantPy</li>
@@ -66,9 +63,13 @@ learn Python through various projects:
         <li><em>etc.</em></li>
 </ul>
 </section>
+<section>
+    <img src="images/reeborg.png">
+</section>
+</section>
 
 <section>
-    <h2>Who ... are you?</h2>
+    <h2><code>who( are you? )</code></h2>
 
 <p style="text-align: left;">
 I assume that most of you have experience and/or interest
@@ -79,7 +80,7 @@ learn Python.
 
 
 <section>
-    <h2>What ... is <code>friendly</code>?</h2>
+    <h2><code>what( is friendly? )</code>?</h2>
 
 <p style="text-align: left;">
 A tool that enhances Python tracebacks to make them easier to understand.
@@ -93,9 +94,7 @@ It used to be called <b>friendly-traceback.</b>
 <pre><code data-trim>
 >>> import this
 ...
-
 Explicit is better than implicit.
-
 ...</code></pre>
 
 <p style="text-align: left;">
@@ -134,8 +133,8 @@ Explicit is better than implicit.
         import turtle as t
       File "...\turtle.py", line 6, in &lt;module>
         t.forward(100)
-    AttributeError: partially initialized module 'turtle'
-    has no attribute 'forward'
+    AttributeError: partially initialized module
+     'turtle' has no attribute 'forward'
     (most likely due to a circular import)</code></pre>
     </section>
 
@@ -189,7 +188,7 @@ Explicit is better than implicit.
 
 <section>
     <section>
-        <h3>How to ... deal with typos?</h3>
+        <h3><code>how_to( deal with typos? )</code></h3>
         <br>
         <br>
         <br>
@@ -207,7 +206,8 @@ Explicit is better than implicit.
     </section>
     <section>
         <img src="images/typo3.png">
-        <br>
+    </section>
+    <section>
         <img src="images/typo4.png">
     </section>
     <section>
@@ -217,8 +217,42 @@ Explicit is better than implicit.
 
 
 <section>
-    <h2>How to install?</h2>
+    <h2><code>how_to( install? )</code></h2>
     <img src="images/pip.png">
+</section>
+
+<section>
+    <section>
+        <h2><code>how_to( ... )</code></h2>
+        Replace an REPL
+        <pre><code data-trim class="python">
+        from friendly[.X] import start_console
+        start_console(...)
+        </code></pre>
+
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+    <section>
+        Use <b>friendly</b> as an exception hook
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+        install(...)
+        </code></pre>
+
+        <small>or, in some cases, the following is enough</small>
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+        </code></pre>
+    </section>
+    <section>
+        Run a program
+        <pre><code data-trim class="python">
+        from friendly[.X] import run
+        run("my_program.py", ...)
+        </code></pre>
+    </section>
 </section>
 
 
@@ -240,41 +274,6 @@ Explicit is better than implicit.
         <img src="images/idle3.png">
     </section>
 </section>
-
-<section>
-    <section>
-        <h2>How to ...?</h2>
-        Replace an REPL
-        <pre><code data-trim class="python">
-        from friendly[.X] import start_console
-        start_console(...)
-        </code></pre>
-
-        <a href="#" class="navigate-down">
-            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
-        </a>
-    </section>
-    <section>
-        <b>friendly</b> as an exception hook
-        <pre><code data-trim class="python">
-        from friendly[.X] import *
-        install(...)
-        </code></pre>
-
-        <small>or, in some cases, the following is enough</small>
-        <pre><code data-trim class="python">
-        from friendly[.X] import *
-        </code></pre>
-    </section>
-    <section>
-        Run a program
-        <pre><code data-trim class="python">
-        from friendly[.X] import run
-        run("my_program.py", ...)
-        </code></pre>
-    </section>
-</section>
-
 
 <section>
     <section><h1><img src="images/mu_logo.png" style="box-shadow: none;"> Mu</h1>
@@ -309,8 +308,32 @@ Explicit is better than implicit.
         <img src="images/mu2.png" style="width:70%;">
     </section>
 </section>
-<section><img src="images/jupyter_logo.png" style="box-shadow: none;">
-<h2>"Demo"</h2></section>
+
+
+<section>
+    <section>
+        <img src="images/jupyter_logo.png" style="box-shadow: none; width:80%">
+        <h2>"Demo"</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+    <section>
+        <img src="images/jupyter_default.png">
+    </section>
+    <section>
+        <img src="images/jupyter_light1.png">
+    </section>
+    <section>
+        <img src="images/jupyter_light2.png">
+    </section>
+    <section>
+        <img src="images/jupyter_dark1.png">
+    </section>
+    <section>
+        <img src="images/jupyter_dark2.png">
+    </section>
+</section>
 
 <section>
     <section>
@@ -335,7 +358,7 @@ Explicit is better than implicit.
     PEP 657 <br>
     Include Fine Grained Error Locations in Tracebacks<br>
     <small>May 8 2021</small>
-    <pre><code data-noescape class="python">
+    <pre><code data-noescape class="python" style="font-size: 1.1em;">
 Traceback (most recent call last):
   File "test.py", line 2, in &lt;module>
     x['a']['b']['c']['d'] = 1
@@ -351,7 +374,7 @@ TypeError: 'NoneType' object is not subscriptable
 </section>
 
 <section>
-    <h2>Why the name change?</h2>
+    <h3><code>why( did the name change? )</code></h3>
 
 <pre><code data-trim class="python">
 from friendly         import ...
@@ -365,21 +388,21 @@ from friendly.jupyter import ...
 from friendly_traceback.idle import ...</code></pre>
 
 
-<p style="text-align: left;">
+<p style="text-align: left;"><small>
 Besides, <em>traceback</em> is not exactly a beginner-friendly term
 and, in the future, <b>friendly</b> might do more than simply
-helping with tracebacks ...
+helping with tracebacks ...</small>
 </p>
 </section>
 
 <section>
-    <h2>What are warnings?</h2>
+    <h2><code>what( are warnings? )</code></h2>
     <img src="images/warnings_examples.png">
 </section>
 
 <section>
     <section>
-        <h2>Why ... <code>import *</code>?</h2>
+        <h2><code>why( import * ? )</code></h2>
     </section>
     <section>
         <p>
@@ -391,7 +414,7 @@ helping with tracebacks ...
 
 
 <section>
-    <h4>Who influenced the design of <code>friendly</code>?</h4>
+    <h4><code>who( influenced the design of friendly? )</code></h4>
 
     <ul>
         <li>Nicholas Tollervey (<a href="https://codewith.mu/">Mu</a>)</li>
@@ -431,12 +454,12 @@ helping with tracebacks ...
 
 <section>
     <section>
-    <h2>Where is the documentation 😏</h2>
+    <h4><code>where( is the documentation? )</code>😏</h4>
     <pre><code data-trim>
     > python -m pip install friendly
     > python -m friendly
 
-    Friendly Console version ... [Python version: ...]
+    Friendly Console version ...
 
     >>> www()
     </code></pre>
@@ -476,6 +499,7 @@ helping with tracebacks ...
                 progress: true,
                 center: true,
 				hash: true,
+                slideNumber: true,
                 transitionSpeed: 'fast',
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
