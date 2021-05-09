@@ -12,6 +12,9 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/default.css" id="highlight-theme">
+        <style type="text/css">
+            img {box-shadow: 5px 5px 5px 5px #ccc;}
+        </style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -20,15 +23,22 @@
     <h2>Introducing friendly</h2>
     <h4>André Roberge</h4>
     PyCon Education Summit - May 12, 2021
+    <br>
+    <br>
+    <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
+    <br>
+    <a href="https://github.com/aroberge/talks">https://github.com/aroberge/talks</a>
+
+
 </section>
 
 <section>
     <h2>Apparent talk outline</h2>
-    <pre><code data-trim>
+    <pre><code data-trim class="python">
 from talk_utils import *
 
-questions = ["what", "where", "why"]  # Special friendly cases
-questions += ["who", "when"]
+questions = ["what", "where", "why"]
+questions.append("who")
 
 while time_left():
     if demo_time():
@@ -68,7 +78,7 @@ learn Python.
 
 
 <section>
-    <h2>What ... is friendly?</h2>
+    <h2>What ... is <code>friendly</code>?</h2>
 
 <p style="text-align: left;">
 A tool that enhances Python tracebacks to make them easier to understand.
@@ -96,17 +106,25 @@ Explicit is better than implicit.
 
 <section>
     <section>
-        <h2>Demo 1</h2>
-        <pre><code data-trim>
+        <h2>"Demo" 1</h2>
+        <pre><code data-trim class="python">
     import turtle as t
 
     for i in range(4):
         t.forward(100)
         t.left(90)</code></pre>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="down_arrow.png">
+        </a>
     </section>
 
     <section>
-        <h2>Demo 1</h2>
+        <h2>"Demo" 1: expected</h2>
+        <img src="turtle_expected.png" style="width: 50%;">
+    </section>
+
+    <section>
+        <h2>"Demo" 1: result</h2>
         <pre><code data-trim data-noescape class="python">
     > python turtle.py
 
@@ -121,63 +139,230 @@ Explicit is better than implicit.
     </section>
 
     <section>
-        <h2>Demo 1</h2>
+        <h2>"Demo" 1: running with <code>friendly</code></h2>
         <img src="demo-turtle1.png" style="width:60%">
     </section>
 
     <section>
-        <h2>Demo 1</h2>
+        <h2>"Demo" 1</h2>
         <pre><code class="text">python -im friendly turtle.py</code></pre>
     </section>
 
     <section>
-        <h2>Demo 1: traceback and <code>hint()</code></h2>
+        <h2>"Demo" 1: traceback and <code>hint()</code></h2>
         <img src="demo-turtle1-tb.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what()</code></h2>
+        <h2>"Demo" 1: <code>what()</code></h2>
         <img src="demo-turtle1-what.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>why()</code></h2>
+        <h2>"Demo" 1: <code>why()</code></h2>
         <img src="demo-turtle1-why.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>where()</code></h2>
+        <h2>"Demo" 1: <code>where()</code></h2>
         <img src="demo-turtle1-where.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>www()</code></h2>
+        <h2>"Demo" 1: <code>www()</code></h2>
         <img src="demo-turtle1-www.png">
-        <img src="demo-turtle1-www-ddg.png" style="width:  80%; box-shadow: 5px 5px 5px 5px #ccc;">
+        <img src="demo-turtle1-www-ddg.png" style="width:  80%;">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what()</code> in French</h2>
+        <h2>"Demo" 1: <code>what()</code> in French</h2>
         <img src="demo-turtle1-what-fr.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what(...)</code> </h2>
+        <h2>"Demo" 1: <code>what(...)</code> </h2>
         <img src="demo-turtle1-what-en.png">
     </section>
 
 </section>
 
-
 <section>
-    Prepare for warnings
+    <section>
+        Can an REPL be friendly?
+        <br>
+        <br>
+        <br>
+        <br>
+        <em>How to deal with typos?</em>
+    </section>
+    <section>
+        <img src="typo1.png">
+    </section>
+    <section>
+        <img src="typo1a.png">
+    </section>
+    <section>
+        <img src="typo2.png">
+    </section>
+    <section>
+        <img src="typo3.png">
+        <br>
+        <img src="typo4.png">
+    </section>
+    <section>
+        <img src="typo5.png">
+    </section>
 </section>
 
 
 <section>
+    <h2>Installation</h2>
+    <img src="pip.png">
+</section>
+
+
+<section>
+    <section><img src="python-IDLE.jpg" style="width: 60%;box-shadow:none;">
+        <h2>"Demo"</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="down_arrow.png">
+        </a>
+    </section>
+
+    <section>
+        <img src="idle1.png">
+    </section>
+    <section>
+        <img src="idle2.png" style="width:80%;">
+    </section>
+            <section>
+        <img src="idle3.png">
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Summary</h2>
+        Replace an REPL
+        <pre><code data-trim class="python">
+        from friendly[.X] import start_console
+        start_console(...)
+        </code></pre>
+
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="down_arrow.png">
+        </a>
+    </section>
+    <section>
+        <b>friendly</b> as an exception hook
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+        install(...)
+        </code></pre>
+
+        <small>or, in some cases, the following is enough</small>
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+        </code></pre>
+    </section>
+    <section>
+        Run a program
+        <pre><code data-trim class="python">
+        from friendly[.X] import run
+        run("my_program.py", ...)
+        </code></pre>
+    </section>
+</section>
+
+
+<section>
+    <section><h1><img src="mu_logo.png" style="box-shadow: none;"> Mu</h1>
+        <h2>"Demo"</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="down_arrow.png">
+        </a>
+
+    </section>
+    <section>
+        <img src="mu5.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu4.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu3a.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu3.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu0.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu1.png" style="width:70%;">
+    </section>
+    <section>
+        <img src="mu1a.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="mu2.png" style="width:70%;">
+    </section>
+</section>
+<section><img src="jupyter_logo.png" style="box-shadow: none;">
+<h2>"Demo"</h2></section>
+
+<section>
+    <section>
+        <h2>Python 3.10 - <code>NameError</code> </h2>
+        <img src="python-310.png">
+    </section>
+    <section>
+        <h2>friendly - <code>NameError</code> </h2>
+        <img src="friendly-310a.png">
+    </section>
+        <section>
+        <h2>friendly - <code>NameError</code> </h2>
+        <img src="friendly-310b.png">
+    </section>
+    <section>
+        <h2>Python 3.10 - <code>NameError</code> </h2>
+        <img src="python-310a.png">
+    </section>
+</section>
+
+<section>
+    PEP 657 <br>
+    Include Fine Grained Error Locations in Tracebacks<br>
+    <small>May 8 2021</small>
+    <pre><code data-noescape class="python">
+Traceback (most recent call last):
+  File "test.py", line 2, in &lt;module>
+    x['a']['b']['c']['d'] = 1
+    ^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+    </code></pre>
+</section>
+
+<section>
+    <img src="pep657.png" style="width: 80%; box-shadow: none;">
+    <br>
+    <small>Thanks to Alex Hall's <a href="https://github.com/alexmojaki/executing">executing</a></small>
+</section>
+
+<section>
+    <section><h2>Documentation</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="down_arrow.png">
+        </a>
+    </section>
+    <section data-background-iframe="https://aroberge.github.io/friendly-traceback-docs/docs/html/" data-background-interactive>
+    </section>
+</section>
+
+<section>
     <h2>Why the name change?</h2>
 
-<pre><code data-trim>from friendly.idle    import ...
+<pre><code data-trim class="python">from friendly.idle    import ...
 from friendly.mu      import ...
 from friendly.ipython import ...
 from friendly.jupyter import ...
@@ -195,30 +380,75 @@ helping with tracebacks ...
 </section>
 
 <section>
-    <h2>Why ... <code>import *</code>?</h2>
-    Custom interpreter: think of it as additional builtins.
+    <h2>Warnings</h2>
+    <img src="warnings_examples.png">
+</section>
+
+<section>
+    <section>
+        <h2>Why ... <code>import *</code>?</h2>
+    </section>
+    <section>
+        <img src="all.png" style="width:50%">
+    </section>
 </section>
 
 
 <section>
-    <h3>Who ... influenced the design of friendly?</h3>
+    <h4>Who influenced the design of <code>friendly</code>?</h4>
 
     <ul>
         <li>Nicholas Tollervey (<a href="https://codewith.mu/">Mu</a>)</li>
         <li>Aivar Annamaa (<a href="https://thonny.org/">Thonny</a>)</li>
         <li>Julien Palard (<a href="https://www.hackinscience.org/">HackInScience</a>)</li>
-        <li>Alex Hall (<a href="https://futurecoder.io/">futurecoder</a>)</li>
+        <li>Alex Hall (<a href="https://futurecoder.io/">futurecoder</a> + many packages)</li>
+        <li>Sylvain Desodt (<a href="https://github.com/SylvainDe/DidYouMean-Python">DidYouMean-Python</a> inspired by Raymond Hettinger)</li>
         <li>Michael Kennedy, Brian Okken, and Hannah Stepanek in
             <a href="https://pythonbytes.fm/episodes/show/220/what-why-and-where-of-friendly-errors-in-python">PythonBytes podcast #220</a></li>
-        <li>+ many others who filed issues</li>
+        <li><em>plus many others who filed issues.</em></li>
     </ul>
 
-<b>I hope that YOUR name will be added to this list.</b>
+</section>
+
+<section>
+    <b>friendly</b> is currently at version 0.3.45; many new features
+    not originally thought of when I started this project
+    have been incorporated in its design.
+    <br>
+    <br>
+    <br>
+    Can <b>YOU</b> think of possible improvements to include
+    in the road to version 1.0?
 </section>
 
 
+<section>
+    <h2>Code</h2>
 
+    <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
+    <br/>
+    You will find a link to the documentation.<br/>
+    <br>
+    <br>
+    But perhaps there is a more pythonic way ...
+</section>
 
+<section>
+    <h2>Documentation 😏</h2>
+    <pre><code data-trim>
+    python -m pip install friendly
+    python -m friendly</code></pre>
+    <pre><code data-trim class="python">
+        >>> www()
+    </code></pre>
+</section>
+
+<section>
+    <pre><code data-trim class="python">
+        if time_left():
+            live_demo()
+    </code></pre>
+</section>
 
 
 			</div>
@@ -237,7 +467,7 @@ helping with tracebacks ...
                 progress: true,
                 center: true,
 				hash: true,
-
+                transitionSpeed: 'fast',
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
