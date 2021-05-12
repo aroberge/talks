@@ -15,14 +15,14 @@
         <style type="text/css">
             img {box-shadow: 5px 5px 5px 5px #ccc;}
             pre code{font-size: 1.3em; line-height: 1.3em;}
-            h2 {color: blue !important;}
         </style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 <section>
-    <h2>Introducing <code style="color:green">friendly</code></h2>
+    <h2>Introducing friendly</h2>
+    <h6 style="color:grey;">[long version]</h6>
     PyCon Education Summit - May 12, 2021
 
     <h4>André Roberge</h4>
@@ -34,64 +34,133 @@
     <a href="https://github.com/aroberge/talks">https://github.com/aroberge/talks</a>
 </section>
 
+<section>
+    <section>
+    <h2><code>who( am I? )</code></h2>
+
+<p style="text-align: left;">
+Python hobbyist trying since 2004 to help other people
+learn Python through various projects:
+</p>
+
+<ul>
+    <li>RUR-PLE</li>
+    <li><a href="https://reeborg.ca">Reeborg's World</a></li>
+    <li>Crunchy</li>
+    <li>docpicture</li>
+    <li>AvantPy</li>
+    <li><strong style="color:green">friendly</strong></li>
+        <li><em>etc.</em></li>
+</ul>
+</section>
+<section>
+    <img src="images/reeborg.png">
+</section>
+</section>
 
 <section>
-    <h2>Who am I?</h2>
+    <h2><code>who( are you? )</code></h2>
 
-    <p style="text-align: left;">
-    Python hobbyist trying since 2004 to help other people
-    learn Python through various projects:
-    </p>
+<p style="text-align: left;">
+I assume that most of you have experience and/or interest
+in helping beginners
+learn Python.
+</p>
+</section>
 
+
+<section>
+    <h2><code>what( is friendly? )</code></h2>
+
+<p style="text-align: left;">
+A tool that enhances Python tracebacks to make them easier to understand.
+</p>
+</section>
+
+<section>
+    <h2><code>what( is friendly? )</code></h2>
+<p style="text-align: left;">
+Initial idea: given a traceback with an error message
+</p>
     <ul>
-        <li>RUR-PLE</li>
-        <li><a href="https://reeborg.ca">Reeborg's World</a></li>
-        <li>Crunchy</li>
-        <li>docpicture</li>
-        <li>AvantPy</li>
-        <li><strong style="color:green">friendly</strong></li>
-            <li><em>etc.</em></li>
+        <li>Add explanation in "simple English" about what
+        the error message means. </li>
+        <li>Make it posssible to translate this explanation
+        into other languages (e.g. French).</li>
     </ul>
+
+<br><br>
+<small><b>friendly</b> now does much more than that.</small>
 </section>
 
-
 <section>
-    <h2>Who are you?</h2>
+<p style="text-align: left;">
+<b>friendly</b> used to be called <b>friendly-traceback.</b>
+</p>
+<pre><code data-trim class="python">
+>>> import this
+...
+Explicit is better than implicit.
+...</code></pre>
 
-    <br>
-    Python educators or mentors.
-</section>
+<p style="text-align: left;">
+<b>friendly-traceback</b> is more explicit than <b>friendly</b>.
+</p>
 
-
-<section>
-    <h2>What is <code style="color:green">friendly</code>?</h2>
-
-    <p style="text-align: left;">
-    A tool that helps understand Python tracebacks.
-    </p>
-</section>
-
-
-<section>
-    <h2>Different programming environments</h2>
-
-    <pre><code data-trim class="python">
-    from friendly         import ...
-    from friendly.idle    import ...
-    from friendly.mu      import ...
-    from friendly.ipython import ...
-    from friendly.jupyter import ...
-    </code></pre>
+<em>Why was the name changed?</em>
 </section>
 
 <section>
     <section>
-        <h2>Observation</h2>
+        <h2>"Demo" 1</h2>
+        <pre><code data-trim class="python">
+    import turtle as t
+
+    for i in range(4):
+        t.forward(100)
+        t.left(90)</code></pre>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+
+    <section>
+        <h2>"Demo" 1: expected</h2>
+        <img src="images/turtle_expected.png" style="width: 50%;">
+    </section>
+
+    <section>
+        <h2>"Demo" 1: result</h2>
+        <pre><code data-trim data-noescape class="python">
+    > python turtle.py
+
+    Traceback (most recent call last):
+      File "turtle.py", line 3, in &lt;module>
+        import turtle as t
+      File "...\turtle.py", line 6, in &lt;module>
+        t.forward(100)
+    AttributeError: partially initialized module
+     'turtle' has no attribute 'forward'
+    (most likely due to a circular import)</code></pre>
+    </section>
+
+    <section>
+        <h4>"Demo" 1: running with <code>friendly</code></h4>
+        <pre><code class="text">python -m friendly turtle.py</code></pre>
+        <img src="images/demo-turtle1.png" style="width:50%">
+    </section>
+
+</section>
+
+<section>
+    <section>
+        <h2>Aside: observation</h2>
         <br><br>
-        Running a program with<br>
-        IDLE, Mu, Thonny, ...
-        <br><br>
-        <pre><code class="text">python   -i    my_program.py</code></pre>
+        Running a program using an editor such as<br>
+        IDLE, Mu, or Thonny,<br>
+        is equivalent to doing
+        <pre><code class="text">python -i my_program.py</code></pre>
+        in a terminal.
     </section>
     <section>
         <pre><code data-trim class="python">
@@ -108,54 +177,9 @@
     </section>
 </section>
 
-
-
 <section>
     <section>
-        <h2>Demo 1</h2>
-        <pre><code data-trim class="python">
-    import turtle as t
-
-    for i in range(4):
-        t.forward(100)
-        t.left(90)</code></pre>
-        <a href="#" class="navigate-down">
-            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
-        </a>
-    </section>
-
-    <section>
-        <h2>Demo 1: expected</h2>
-        <img src="images/turtle_expected.png" style="width: 50%;">
-    </section>
-
-    <section>
-        If the demo does not work ...
-    </section>
-
-    <section>
-        <h2>Demo 1: result</h2>
-        <pre><code data-trim data-noescape class="python">
-    > python turtle.py
-
-    Traceback (most recent call last):
-      File "turtle.py", line 3, in &lt;module>
-        import turtle as t
-      File "...\turtle.py", line 6, in &lt;module>
-        t.forward(100)
-    AttributeError: partially initialized module
-     'turtle' has no attribute 'forward'
-    (most likely due to a circular import)</code></pre>
-    </section>
-
-    <section>
-        <h4>Demo 1: running with <code>friendly</code></h4>
-        <pre><code class="text">python -m friendly turtle.py</code></pre>
-        <img src="images/demo-turtle1.png" style="width:50%">
-    </section>
-
-    <section>
-        <h2>Demo 1: using friendly</h2>
+        <h2>Back to "demo" 1</h2>
         <pre><code class="python">python -im friendly turtle.py
 ...
 
@@ -165,40 +189,40 @@ Friendly Console ...
     </section>
 
     <section>
-        <h2>Demo 1: traceback and <code>hint()</code></h2>
+        <h2>"Demo" 1: traceback and <code>hint()</code></h2>
         <img src="images/demo-turtle1-tb.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what()</code></h2>
+        <h2>"Demo" 1: <code>what()</code></h2>
         <img src="images/demo-turtle1-what.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>why()</code></h2>
+        <h2>"Demo" 1: <code>why()</code></h2>
         <img src="images/demo-turtle1-why.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>where()</code></h2>
+        <h2>"Demo" 1: <code>where()</code></h2>
         <img src="images/demo-turtle1-where.png">
 
         <small>Only one or two frames are shown.</small>
     </section>
 
     <section>
-        <h2>Demo 1: <code>www()</code></h2>
+        <h2>"Demo" 1: <code>www()</code></h2>
         <img src="images/demo-turtle1-www.png">
         <img src="images/demo-turtle1-www-ddg.png" style="width:  80%;">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what()</code> in French</h2>
+        <h2>"Demo" 1: <code>what()</code> in French</h2>
         <img src="images/demo-turtle1-what-fr.png">
     </section>
 
     <section>
-        <h2>Demo 1: <code>what(...)</code> </h2>
+        <h2>"Demo" 1: <code>what(...)</code> </h2>
         <img src="images/demo-turtle1-what-en.png">
     </section>
 
@@ -213,7 +237,7 @@ Friendly Console ...
 
 <section>
     <section>
-        <h2>Typos?</h2>
+        <h3><code>how_to( deal with typos? )</code></h3>
         <br>
         <br>
         <br>
@@ -242,32 +266,62 @@ Friendly Console ...
 
 
 <section>
-    <section><h2>How to install <code style="color:green">friendly</code>?</h2>
+    <section><h2><code>how_to( install? )</code></h2>
     <img src="images/pip.png"></section>
     <section><img src="images/ipython.png"></section>
 
 </section>
 
 <section>
-    Next: demos with IDLE, Mu (, and Jupyter Lab?)
+    Next: "demos" with IDLE, Mu, and Jupyter Lab.
+    <br><br><br>
+    <small>But first, an aside.</small>
 </section>
 
-
-
 <section>
-    <section><img src="images/python-IDLE.jpg" style="width: 60%;box-shadow:none;">
-        <h2>Demo</h2>
+    <section>
+        <h2><code>how_to( ... )</code></h2>
+        Use <b>friendly</b> as an exception hook
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+
+        install(...)
+        </code></pre>
+
+        <small>or, in some cases, the following is enough</small>
+        <pre><code data-trim class="python">
+        from friendly[.X] import *
+        </code></pre>
+
+    </section>
+    <section>
+        Replace a REPL
+        <pre><code data-trim class="python">
+        from friendly[.X] import start_console
+
+        start_console(...)
+        </code></pre>
+
         <a href="#" class="navigate-down">
             <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
         </a>
     </section>
     <section>
-        <pre><code class="python">
-            from friendly.idle import run
+        Run a program
+        <pre><code data-trim class="python">
+        # friendly_runner.py
 
-            run("test.py")
+        from friendly[.X] import run
+
+        run("my_program.py", ...)
         </code></pre>
-        <small>If the demo does not work.</small><br>
+    </section>
+</section>
+
+
+<section>
+    <section><img src="images/python-IDLE.jpg" style="width: 60%;box-shadow:none;">
+        <h2>"Demo"</h2>
         <a href="#" class="navigate-down">
             <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
         </a>
@@ -287,14 +341,13 @@ Friendly Console ...
 
 <section>
     <section><h1><img src="images/mu_logo.png" style="box-shadow: none;"> Mu</h1>
-        <h2>Demo</h2>
-        <small>If the demo does not work.</small><br>
-
+        <h2>"Demo"</h2>
         <a href="#" class="navigate-down">
             <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
         </a>
 
     </section>
+
 
     <section>
         <img src="images/mu_1.png" style="width:80%;">
@@ -332,19 +385,49 @@ Friendly Console ...
         <img src="images/mu3.png" style="width:80%;">
     </section>
 
+
+
+<!--     <section>
+        old
+        <img src="images/mu5.png" style="width:80%;">
+    </section>
+    <section>
+        1
+        <img src="images/mu4.png" style="width:80%;">
+    </section>
+    <section>
+        2
+        <img src="images/mu3a.png" style="width:80%;">
+    </section>
+    <section>
+        3
+        <img src="images/mu3.png" style="width:80%;">
+    </section>
+    <section>
+        4
+        <img src="images/mu0.png" style="width:80%;">
+    </section>
+    <section>
+        5
+        <img src="images/mu1.png" style="width:70%;">
+    </section>
+    <section>
+        6
+        <img src="images/mu1a.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu2.png" style="width:70%;">
+    </section> -->
 </section>
 
 
 <section>
     <section>
         <img src="images/jupyter_logo.png" style="box-shadow: none; width:80%">
-        <h2>Demo?</h2>
+        <h2>"Demo"</h2>
         <a href="#" class="navigate-down">
             <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
         </a>
-    </section>
-    <section>
-        If the demo does not work ...
     </section>
     <section>
         <img src="images/jupyter_default.png">
@@ -366,63 +449,76 @@ Friendly Console ...
     </section>
 </section>
 
-
 <section>
     <section>
-    <p style="text-align: left;">
-    <b>friendly</b> used to be called <b>friendly-traceback.</b>
-    </p>
-    <pre><code data-trim class="python">
-    >>> import this
-    ...
-    Explicit is better than implicit.
-    ...</code></pre>
-
-    <p style="text-align: left;">
-    <b>friendly-traceback</b> is more explicit than <b>friendly</b>.
-    </p>
-
-    <em>Why was the name changed?</em>
+        <h2>Python 3.10 - <code>NameError</code> </h2>
+        <img src="images/python-310.png">
     </section>
-
-
     <section>
-
-    <pre><code data-trim class="python">
-    from friendly         import ...
-    from friendly.idle    import ...
-    from friendly.mu      import ...
-    from friendly.ipython import ...
-    from friendly.jupyter import ...
-
-    # are better than
-
-    from friendly_traceback.idle import ...</code></pre>
-
-
-    <p style="text-align: left;"><small>
-    Besides, <em>traceback</em> is not exactly a beginner-friendly term
-    and, in the future, <b>friendly</b> might do more than simply
-    helping with tracebacks ...</small>
-    </p>
+        <h2>friendly - <code>NameError</code> </h2>
+        <img src="images/friendly-310a.png">
     </section>
-
-    <section>
-        <img src="images/type_hint_warning.png">
+        <section>
+        <h2>friendly - <code>NameError</code> </h2>
+        <img src="images/friendly-310b.png">
     </section>
-
-
     <section>
-        <h2>Warnings</h2>
-        <img src="images/warnings_examples.png">
-        <br>
-        <small>Only works in the friendly console, not with custom modules.</small>
+        <h2>Python 3.10 - <code>NameError</code> </h2>
+        <img src="images/python-310a.png">
     </section>
 </section>
 
 <section>
+    PEP 657 <br>
+    Include Fine Grained Error Locations in Tracebacks<br>
+    <small>May 8 2021</small>
+    <pre><code data-noescape class="python" style="font-size: 1.1em;">
+Traceback (most recent call last):
+  File "test.py", line 2, in &lt;module>
+    x['a']['b']['c']['d'] = 1
+    ^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+    </code></pre>
+</section>
+
+<section>
+    <section>    <img src="images/pep657.png" style="width: 80%; box-shadow: none;">
+    <br>
+    <small>Thanks to Alex Hall's <a href="https://github.com/alexmojaki/executing">executing</a> which uses <a href="https://github.com/gristlabs/asttokens">ASTTokens</a></small></section>
+    <section><img src="images/pep657a.png"></section>
+
+</section>
+
+<section>
+    <h3><code>why( did the name change? )</code></h3>
+
+<pre><code data-trim class="python">
+from friendly         import ...
+from friendly.idle    import ...
+from friendly.mu      import ...
+from friendly.ipython import ...
+from friendly.jupyter import ...
+
+# are better than
+
+from friendly_traceback.idle import ...</code></pre>
+
+
+<p style="text-align: left;"><small>
+Besides, <em>traceback</em> is not exactly a beginner-friendly term
+and, in the future, <b>friendly</b> might do more than simply
+helping with tracebacks ...</small>
+</p>
+</section>
+
+<section>
+    <h2><code>what( are warnings? )</code></h2>
+    <img src="images/warnings_examples.png">
+</section>
+
+<section>
     <section>
-        <h2>Why <code>import *</code>?</h2>
+        <h2><code>why( import * ? )</code></h2>
     </section>
     <section>
         <p>
@@ -434,7 +530,7 @@ Friendly Console ...
 
 
 <section>
-    <h2>Thanks to</h2>
+    <h4><code>who( influenced the design of friendly? )</code></h4>
 
     <ul>
         <li>Nicholas Tollervey (<a href="https://codewith.mu/">Mu</a>)</li>
@@ -449,11 +545,20 @@ Friendly Console ...
 
 </section>
 
-
+<section>
+    <b>friendly</b> is currently at version 0.3<span style="font-size: 0.7em">.47 </span><br>
+    Many features not originally thought of when I started this project
+    have been incorporated in its design.
+    <br>
+    <br>
+    <br>
+    Can <b>YOU</b> think of possible improvements to include
+    in the road to version 1.0?
+</section>
 
 
 <section>
-    <h2>Where is the code?</h2>
+    <h2><code>where( is the code? )</code></h2>
 
     <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
     <br/>
@@ -487,14 +592,8 @@ Friendly Console ...
 </section>
 
 <section>
-    <b>friendly</b> is currently at version 0.3<span style="font-size: 0.7em">.50 </span><br>
-    Many features not originally thought of when I started this project
-    have been incorporated in its design.
-    <br>
-    <br>
-    <br>
-    Can <b>YOU</b> think of possible improvements to include
-    in the road to version 1.0?
+    Feel free to contact me with your suggestions as to how to
+    improve <b>friendly</b>.
 </section>
 
 
