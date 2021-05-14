@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>About friendly</title>
+
+		<link rel="stylesheet" href="revealjs/dist/reset.css">
+		<link rel="stylesheet" href="revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="revealjs/plugin/highlight/googlecode.css" id="highlight-theme">
+        <style type="text/css">
+            img {box-shadow: 5px 5px 5px 5px #ccc;}
+            pre code{font-size: 1.3em; line-height: 1.3em;}
+            h2 {color: blue !important;}
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+    <h2>About <code style="color:green">friendly</code></h2>
+    PyCon Lightning Talk - May 14, 2021
+
+    <h4>André Roberge</h4>
+
+    <br>
+    <br>
+    <br>
+    See PyCon's Education Summit
+</section>
+
+
+
+<section>
+    <h2 style="color: green !important;">&lt;Aside></h2>
+    <h2><code>What's new in Python 3.10</code>?</h2>
+
+    <h3>
+    Improved <span style="color:red;">tracebacks</span>!
+    </h3>
+    <small>Thanks to many people, but mostly Pablo Galindo Salgado.</small>
+</section>
+
+
+<section>
+    <h2><code style="color:black;">May 8: </code> PEP 657</h2>
+    Include Fine Grained Error Locations in Tracebacks<br>
+    <pre><code data-noescape class="python" style="font-size: 1.1em;">
+Traceback ...
+    print(x[42][1][2][3][4])
+          ^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+    </code></pre>
+
+<h2 style="color: green !important;">&lt;/Aside></h2>
+</section>
+
+<section>
+    <h2>What is <code style="color:green">friendly</code>?</h2>
+
+    <br>
+    Library providing help with tracebacks.
+</section>
+
+<section>
+    <img src="images/pep657_lightning_1.png">
+</section>
+
+
+<section>
+    <h2><code>why()</code></h2>
+    <img src="images/pep657_lightning_3.png">
+</section>
+
+<section>
+    <h2><code>where()</code></h2>
+    <img src="images/pep657_lightning_2.png">
+    <h3><code style="color:green">Python 3.6+</code></h3>
+</section>
+
+
+<section>
+    <h2><code>what()</code></h2>
+    <img src="images/pep657_lightning_4.png">
+</section>
+
+<section><h3><code style="color:red">SyntaxError: invalid syntax</code></h3>
+    <img src="images/pip.png"></section>
+</section>
+
+<section>
+    <h2><code>www()</code></h2>
+    <img src="images/demo-turtle1-www.png">
+</section>
+
+<section>
+    <img src="images/demo-turtle1-www-ddg.png" style="width:  80%;">
+</section>
+
+
+<section>
+    <h4><code>Python 3.10:</code> <code style="color:red;">NameError, AttributeError</code> </h4>
+    <img src="images/python-310_lightning.png">
+</section>
+
+<section>
+    <h4><code>Python 3.10: Jupyter</code> </h4>
+    <img src="images/jupyter_310.png">
+</section>
+
+<section>
+    <img src="images/jupyter_310_a.png" style="width: 120%;">
+</section>
+
+<section>
+    <img src="images/jupyter_310_b.png" style="width: 140%;">
+</section>
+
+<section>
+    <pre><code data-trim class="python">
+    # terminal, VS Code, etc.
+    from friendly         import ...
+
+    # Special cases
+    from friendly.idle    import ...
+    from friendly.mu      import ...
+    from friendly.ipython import ...
+    from friendly.jupyter import ...
+    </code></pre>
+</section>
+
+
+<section>
+    <img src="images/all_2.png" style="width:30%">
+</p>
+</section>
+
+
+<section>
+    If you need help with tracebacks
+</section>
+
+
+<section>
+    <pre><code data-trim>
+    > python -m pip install friendly
+    </code></pre>
+</section>
+
+<section>
+    <pre><code data-trim>
+    > python -m friendly
+
+    Friendly Console version ...
+
+    >>>
+    </code></pre>
+</section>
+
+<section>
+    <pre><code data-trim>
+    >>> www()
+    </code></pre>
+</section>
+
+<section>
+    <img src="images/friendly_doc.png">
+</section>
+
+<section>
+    <h1>
+    <code>Try</code> <code style="color:green;">friendly</code>!
+    </h1>
+</section>
+
+
+			</div>
+		</div>
+
+		<script src="revealjs/dist/reveal.js"></script>
+		<script src="revealjs/plugin/notes/notes.js"></script>
+		<script src="revealjs/plugin/markdown/markdown.js"></script>
+		<script src="revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+				hash: true,
+                slideNumber: true,
+                transitionSpeed: 'fast',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
