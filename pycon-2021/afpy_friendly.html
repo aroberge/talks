@@ -1,0 +1,565 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Présentation de friendly</title>
+
+		<link rel="stylesheet" href="revealjs/dist/reset.css">
+		<link rel="stylesheet" href="revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="revealjs/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="revealjs/plugin/highlight/googlecode.css" id="highlight-theme">
+        <style type="text/css">
+            img {box-shadow: 5px 5px 5px 5px #ccc;}
+            pre code{font-size: 1.3em; line-height: 1.3em;}
+            h2 {color: blue !important;}
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+    <h2>Présentation de <code style="color:green">friendly</code></h2>
+    AFPy - 18 mai 2021
+
+    <h4>André Roberge</h4>
+
+    <br>
+    <br>
+    <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
+</section>
+
+<section>
+    <h2>Buts:</h2>
+
+    <ul>
+        <li>Présenter <code style="color:green">friendly</code>.</li>
+        <li>Vous motiver à faire des suggestions.</li>
+    </ul>
+</section>
+
+<section>
+    <ul><li>Introduction et survol</li>
+        <li>Démonstrations</li></ul>
+</section>
+
+
+<section>
+    Illustration sur HackInScience
+</section>
+
+
+<section>
+    À l'origine:<br><br>
+
+     <code style="color:red">UnboundLocalError: ...</code>
+    <br>
+    <br>
+    -> Qu'est-ce que ça veut dire?
+
+    <br>
+    ... avec traduction possible.
+
+    <br><br>
+    Ceci est devenu <code style="color:blue">what()</code> qui sera démontré ...
+    <br>
+    <br>
+    <br>
+    Puis est venu s'ajouter <code style="color:blue">where()</code> ...
+</section>
+
+
+<section>
+    <img src="images/palard.png">
+</section>
+
+<section>
+    Ceci a mené à <code style="color:blue">why()</code> ...
+    <br>
+    <br>
+    ... <code style="color:blue">hint()</code> ...
+    <br>
+    <br>
+    <br>
+    ... <code style="color:blue">www()</code> ...
+</section>
+
+<section>
+    <h2>Différents environments</h2>
+
+    <pre><code data-trim class="python">
+    # terminal, VS Code, etc.
+    from friendly         import ...
+
+    # cas particuliers
+    from friendly.idle    import ...
+    from friendly.mu      import ...
+    from friendly.ipython import ...
+    from friendly.jupyter import ...
+    </code></pre>
+</section>
+
+<section>
+    <section>
+        <h2>Observation</h2>
+        <br><br>
+        Exécuter un programme avec<br>
+        IDLE, Mu, Thonny, ...
+        <br><br>
+        <pre><code class="text">python   -i    mon_programme.py</code></pre>
+    </section>
+    <section>
+        <pre><code data-trim class="python">
+            # mon_programme.py
+
+            réponse = 42
+            print("Bonjour AFPy !")
+        </code></pre>
+        Éxécution:
+        <pre><code class="python">Bonjour AFPy !
+>>> réponse
+42
+>>> </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Démo 1</h2>
+        <pre><code data-trim class="python">
+    import turtle as t
+
+    for i in range(4):
+        t.forward(100)
+        t.left(90)</code></pre>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+
+    <section>
+        <h2>Démo 1: ce qu'on veut...</h2>
+        <img src="images/turtle_expected.png" style="width: 50%;">
+    </section>
+
+    <section><h2>Démo</h2>
+        <pre><code data-trim class="python">
+    >>> set_lang('fr')  # si requis
+    >>> hint()
+    >>> what()
+    >>> where()
+    >>> why()
+    >>> www()
+</code></pre>
+    </section>
+
+    <section>
+        Si la démo ne fonctionne pas...
+        <br>
+
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+
+    </section>
+
+    <section>
+        <h2>Demo 1: result</h2>
+        <pre><code data-trim data-noescape class="python">
+    > python turtle.py
+
+    Traceback (most recent call last):
+      File "turtle.py", line 3, in &lt;module>
+        import turtle as t
+      File "...\turtle.py", line 6, in &lt;module>
+        t.forward(100)
+    AttributeError: partially initialized module
+     'turtle' has no attribute 'forward'
+    (most likely due to a circular import)</code></pre>
+    </section>
+
+    <section>
+        <h4>Demo 1: running with <code>friendly</code></h4>
+        <pre><code class="text">python -m friendly turtle.py</code></pre>
+        <img src="images/demo-turtle1.png" style="width:50%">
+    </section>
+
+    <section>
+        <h2>Demo 1: using friendly</h2>
+        <pre><code class="python">python -im friendly turtle.py
+...
+
+Friendly Console ...
+
+>>>
+</code></pre>
+    </section>
+
+    <section>
+        <h2>Demo 1: traceback and <code>hint()</code></h2>
+        <img src="images/demo-turtle1-tb.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what()</code></h2>
+        <img src="images/demo-turtle1-what.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>why()</code></h2>
+        <img src="images/demo-turtle1-why.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>where()</code></h2>
+        <img src="images/demo-turtle1-where.png">
+
+        <small>Only one or two frames are shown.</small>
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>www()</code></h2>
+        <img src="images/demo-turtle1-www.png">
+        <img src="images/demo-turtle1-www-ddg.png" style="width:  80%;">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what()</code> in French</h2>
+        <img src="images/demo-turtle1-what-fr.png">
+    </section>
+
+    <section>
+        <h2>Demo 1: <code>what(...)</code> </h2>
+        <img src="images/demo-turtle1-what-en.png">
+    </section>
+
+    <section>
+        <h2>"Demo 1": summary</h2>
+        <br>
+        We can use <b>friendly</b> to ask questions and
+        obtain answers helping us understand what caused
+        a given traceback.
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Fautes de frappe?</h2>
+        <pre><code data-trim class="python">
+    >>> calcul_long()
+    Traceback (most recent call last):
+    ...
+    >>> whyy()
+    Traceback (most recent call last):
+    ...
+</code></pre>
+    <br>
+        Est-ce qu'un REPL peut être convivial?
+    </section>
+    <section>
+        <img src="images/typo1.png">
+    </section>
+    <section>
+        <img src="images/typo1a.png">
+    </section>
+    <section>
+        <img src="images/typo2.png">
+    </section>
+    <section>
+        <img src="images/typo3.png">
+    </section>
+    <section>
+        <img src="images/typo4.png">
+    </section>
+    <section>
+        <img src="images/typo5.png">
+    </section>
+</section>
+
+
+<section>
+    Démo avec Jupyter Lab
+    <br>
+    <img src="images/jupyter_logo.png" style="box-shadow: none; width:40%">
+</section>
+
+<section>
+    <section>
+        <h2>Pourquoi <code style="color:green;">import *</code>?</h2>
+    </section>
+    <section>
+        <p>
+        <img src="images/all.png" style="width:30%; vertical-align: middle;">
+        <span style="vertical-align: middle;">Friendly.why() == why(), etc</span>
+    </p>
+    </section>
+</section>
+
+<section>
+    <h2>Où est le code?</h2>
+
+    <a href="https://github.com/aroberge/friendly">https://github.com/aroberge/friendly</a>
+    <br/>
+    Vous y trouverez un lien menant à la documentation...<br/>
+    <br>
+    <br>
+    ... mais il y a une façon plus <em>pythonique</em> ...
+</section>
+
+<section>
+    <section>
+    <h4><code>Documentation ?</code>😏</h4>
+    <pre><code data-trim>
+    > python -m pip install friendly
+    > python -m friendly
+
+    Friendly Console version ...
+
+    >>> www()
+    </code></pre>
+
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+    <section data-background-iframe="https://aroberge.github.io/friendly-traceback-docs/docs/html/" data-background-interactive>
+    </section>
+</section>
+
+<section>
+    <h2>Remerciements</h2>
+
+    <ul>
+        <li>Nicholas Tollervey (<a href="https://codewith.mu/">Mu</a>)</li>
+        <li>Aivar Annamaa (<a href="https://thonny.org/">Thonny</a>)</li>
+        <li>Julien Palard (<a href="https://www.hackinscience.org/">HackInScience</a>)</li>
+        <li>Alex Hall (<a href="https://futurecoder.io/">futurecoder</a> + plusieurs modules)</li>
+        <li>Sylvain Desodt (<a href="https://github.com/SylvainDe/DidYouMean-Python">DidYouMean-Python</a> inspiré par Raymond Hettinger)</li>
+        <li>Michael Kennedy, Brian Okken, et Hannah Stepanek dans
+            <a href="https://pythonbytes.fm/episodes/show/220/what-why-and-where-of-friendly-errors-in-python">PythonBytes podcast #220</a></li>
+        <li><em>et plusieurs autres ... et pourquoi pas vous?</em></li>
+    </ul>
+
+</section>
+
+
+<section><h1>Fin</h1></section>
+
+<section>D'autres diapos en cas de problèmes ...</section>
+
+<section>
+    <section><img src="images/python-IDLE.jpg" style="width: 60%;box-shadow:none;">
+        <h2>Demo</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+    <section>
+        <pre><code class="python">
+            from friendly.idle import run
+
+            run("test.py")
+        </code></pre>
+        <small>If the demo does not work.</small><br>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+
+    <section>
+        <img src="images/idle1.png">
+    </section>
+    <section>
+        <img src="images/idle3.png">
+    </section>
+    <section>
+        <img src="images/idle2.png" style="width:80%;">
+    </section>
+
+</section>
+
+<section>
+    <section><h1><img src="images/mu_logo.png" style="box-shadow: none;"> Mu</h1>
+        <h2>Demo</h2>
+        <small>If the demo does not work.</small><br>
+
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+
+    </section>
+
+    <section>
+        <img src="images/mu_1.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu_2.png" style="width:80%;">
+    </section>
+
+    <section>
+        <img src="images/mu_2a.png" style="width:80%;">
+    </section>
+
+    <section>
+        <img src="images/mu_3.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu_4.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu_5.png" style="width:60%;">
+    </section>
+
+
+    <section>
+        <img src="images/mu5.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu4.png" style="width:80%;">
+    </section>
+
+    <section>
+        <img src="images/mu3a.png" style="width:80%;">
+    </section>
+    <section>
+        <img src="images/mu3.png" style="width:80%;">
+    </section>
+
+</section>
+
+
+<section>
+    <section>
+        <img src="images/jupyter_logo.png" style="box-shadow: none; width:80%">
+        <h2>Demo?</h2>
+        <a href="#" class="navigate-down">
+            <img width="100" height="150" style="box-shadow: none;" data-src="images/down_arrow.png">
+        </a>
+    </section>
+    <section>
+        If the demo does not work ...
+    </section>
+    <section>
+        <img src="images/jupyter_default.png">
+    </section>
+    <section>
+        <pre><code data-noescape class="python" style="font-size: 1.1em;">
+    from friendly.jupyter import *
+    </code></pre>
+        <img src="images/jupyter_light1.png" style="width:40%;">
+        <img src="images/jupyter_light2.png" style="width:40%;">
+    </section>
+    <section>
+        <img src="images/jupyter_dark1.png" style="width:40%;">
+        <img src="images/jupyter_dark2.png" style="width:40%;">
+    </section>
+    <section>
+        <img src="images/jupyter_light_bw.png" style="width:40%;">
+        <img src="images/jupyter_dark_bw.png" style="width:40%;">
+    </section>
+</section>
+
+
+<section>
+    <section>
+    <p style="text-align: left;">
+    <b>friendly</b> used to be called <b>friendly-traceback.</b>
+    </p>
+    <pre><code data-trim class="python">
+    >>> import this
+    ...
+    Explicit is better than implicit.
+    ...</code></pre>
+
+    <p style="text-align: left;">
+    <b>friendly-traceback</b> is more explicit than <b>friendly</b>.
+    </p>
+
+    <em>Why was the name changed?</em>
+    </section>
+
+
+    <section>
+
+    <pre><code data-trim class="python">
+    from friendly         import ...
+    from friendly.idle    import ...
+    from friendly.mu      import ...
+    from friendly.ipython import ...
+    from friendly.jupyter import ...
+
+    # are better than
+
+    from friendly_traceback.idle import ...</code></pre>
+
+
+    <p style="text-align: left;"><small>
+    Besides, <em>traceback</em> is not exactly a beginner-friendly term
+    and, in the future, <b>friendly</b> might do more than simply
+    helping with tracebacks ...</small>
+    </p>
+    </section>
+
+    <section>
+        <img src="images/type_hint_warning.png">
+    </section>
+
+
+    <section>
+        <h2>Warnings</h2>
+        <img src="images/warnings_examples.png">
+        <br>
+        <small>Only works in the friendly console, not with custom modules.</small>
+    </section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+    <b>friendly</b> is currently at version 0.3<span style="font-size: 0.7em">.55 </span><br>    <br>
+    Try it!
+    <br>
+
+    <br>
+    Let me know how it could be improved<br>
+    for you and your students.
+</section>
+
+
+			</div>
+		</div>
+
+		<script src="revealjs/dist/reveal.js"></script>
+		<script src="revealjs/plugin/notes/notes.js"></script>
+		<script src="revealjs/plugin/markdown/markdown.js"></script>
+		<script src="revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+				hash: true,
+                slideNumber: true,
+                transitionSpeed: 'fast',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
